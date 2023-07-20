@@ -100,7 +100,9 @@ public final class _GlossButtonBodyNode: ASDisplayNode {
   }
   
   public func setImageTintColor(_ imageTintColor: UIColor?) {
-    self.imageNode.tintColor = imageTintColor
+    if let imageTintColor {
+      self.imageNode.imageModificationBlock = ASImageNodeTintColorModificationBlock(imageTintColor)
+    }
   }
   
   public func setTitle(_ title: NSAttributedString?) {
